@@ -15,19 +15,21 @@
 # - Utilize the `in` operator to check for vowels.
 # - Ensure to provide feedback for non-alphabetical or invalid entries.
 
-# def check_letter():
-#     # Your control flow logic goes here
-#     letter = input("Enter a letter (a-z or A-Z): ").strip()
-#     lower_letter = letter.lower()
-#     print(lower_letter)
+def check_letter():
+    # Your control flow logic goes here
+    letter = input("Enter a letter (a-z or A-Z): ").strip()
+    if len(letter) !=1 or not letter.isalpha():
+        print("Invalid input. Please enter a single alphabetical letter.")
+        return
 
-#     if lower_letter in "aeiou":
-#         print("The letter" + letter + "is a vowel")
-#     else:
-#         print("The letter" + letter + "is a consonant.")
+    lower_letter = letter.lower()
 
-# Call the function
-# check_letter()
+    if lower_letter in "aeiou":
+        print("The letter " + letter + " is a vowel")
+    else:
+        print("The letter " + letter + " is a consonant.")
+
+check_letter()
 
 #---------------------------------------------------------------------------------------------------------
 # Exercise 2: Old enough to vote?
@@ -154,38 +156,38 @@
 # - Adjust the season based on the day of the month when needed.
 # - Ensure to validate input formats and handle unexpected inputs gracefully.
 
-def determine_season():
-    # Your control flow logic goes here
-    month = input("Enter the month of the year (Jan - Dec): ").strip()
-    day_input = input("Enter the day of the month: ").strip()
+# def determine_season():
+#     # Your control flow logic goes here
+#     month = input("Enter the month of the year (Jan - Dec): ").strip()
+#     day_input = input("Enter the day of the month: ").strip()
 
-    if not day_input.isdigit():
-        print("Invalid day. Please enter a number.")
-        return
+#     if not day_input.isdigit():
+#         print("Invalid day. Please enter a number.")
+#         return
     
     
-    day = int(day_input)
+#     day = int(day_input)
     
 
-    months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
+#     months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
 
-    if not month in months:
-        print("Invalid month. Please use format like Jan, Feb, ..., Dec.")
-        return
-    if day<0 or day>31:
-        print("Invalid day. Enter a value from 1 to 31.")
-        return
+#     if not month in months:
+#         print("Invalid month. Please use format like Jan, Feb, ..., Dec.")
+#         return
+#     if day<0 or day>31:
+#         print("Invalid day. Enter a value from 1 to 31.")
+#         return
     
-    if (month == "Dec" and day>20) or month in ["Jan", "Feb"] or (month == "Mar" and day<20): 
-        season= "Winter"
-    elif (month == "Mar" and day>19) or month in ["Apr","May"] or (month == "Jun" and day<21): 
-        season = "Spring"
-    elif (month == "Jun" and day>20) or month in ["Jul","Aug"] or (month == "Sep" and day<22):
-        season = "Summer"
-    else:
-        season = "Fall" 
+#     if (month == "Dec" and day>20) or month in ["Jan", "Feb"] or (month == "Mar" and day<20): 
+#         season= "Winter"
+#     elif (month == "Mar" and day>19) or month in ["Apr","May"] or (month == "Jun" and day<21): 
+#         season = "Spring"
+#     elif (month == "Jun" and day>20) or month in ["Jul","Aug"] or (month == "Sep" and day<22):
+#         season = "Summer"
+#     else:
+#         season = "Fall" 
     
 
-    print(f" {month} {day} is in {season}")
+#     print(f" {month} {day} is in {season}")
 
-determine_season()
+# determine_season()
