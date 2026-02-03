@@ -15,21 +15,21 @@
 # - Utilize the `in` operator to check for vowels.
 # - Ensure to provide feedback for non-alphabetical or invalid entries.
 
-def check_letter():
-    # Your control flow logic goes here
-    letter = input("Enter a letter (a-z or A-Z): ").strip()
-    if len(letter) !=1 or not letter.isalpha():
-        print("Invalid input. Please enter a single alphabetical letter.")
-        return
+# def check_letter():
+#     # Your control flow logic goes here
+#     letter = input("Enter a letter (a-z or A-Z): ").strip()
+#     if len(letter) !=1 or not letter.isalpha():
+#         print("Invalid input. Please enter a single alphabetical letter.")
+#         return
 
-    lower_letter = letter.lower()
+#     lower_letter = letter.lower()
 
-    if lower_letter in "aeiou":
-        print("The letter " + letter + " is a vowel")
-    else:
-        print("The letter " + letter + " is a consonant.")
+#     if lower_letter in "aeiou":
+#         print("The letter " + letter + " is a vowel")
+#     else:
+#         print("The letter " + letter + " is a consonant.")
 
-check_letter()
+# check_letter()
 
 #---------------------------------------------------------------------------------------------------------
 # Exercise 2: Old enough to vote?
@@ -48,23 +48,25 @@ check_letter()
 # - Use `int()` to convert the input to an integer. Ensure to handle any conversion errors gracefully.
 # - Use a conditional statement to check if the age meets the minimum voting age requirement.
 
-# def check_voting_eligibility():
-    # Your control flow logic goes here
-    # voting_age = 18
-    # while True:
-    #     user_input= input("Please enter your age: ").strip()
-    #     age = int(user_input)
-    #     if age < 0:
-    #         print("Invalid age. Age cannot be negative.")
-    #         return
-    #     if age < voting_age:
-    #         print("You are not eligible to vote yet.")
-    #     else:
-    #         print("You are eligible to vote!")
-    #     break
+def check_voting_eligibility():
+    VOTING_AGE = 18
+    while True:
+        user_input= input("Please enter your age: ").strip()
+        if not user_input.isdigit():
+            print("Invalid input. Please enter a valid number.")
+        else: 
+            age = int(user_input)
+            if age < 0:
+                print("Invalid age. Age cannot be negative.")
+            else:
+                break
     
-# Call the function
-# check_voting_eligibility()
+    if age < VOTING_AGE:
+        print("You are not eligible to vote yet.")
+    else:
+        print("You are eligible to vote!")
+    
+check_voting_eligibility()
 
 #---------------------------------------------------------------------------------------------------------
 # Exercise 3: Calculate Dog Years
