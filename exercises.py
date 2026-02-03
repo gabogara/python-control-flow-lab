@@ -48,25 +48,25 @@
 # - Use `int()` to convert the input to an integer. Ensure to handle any conversion errors gracefully.
 # - Use a conditional statement to check if the age meets the minimum voting age requirement.
 
-def check_voting_eligibility():
-    VOTING_AGE = 18
-    while True:
-        user_input= input("Please enter your age: ").strip()
-        if not user_input.isdigit():
-            print("Invalid input. Please enter a valid number.")
-        else: 
-            age = int(user_input)
-            if age < 0:
-                print("Invalid age. Age cannot be negative.")
-            else:
-                break
+# def check_voting_eligibility():
+#     VOTING_AGE = 18
+#     while True:
+#         user_input= input("Please enter your age: ").strip()
+#         if not user_input.isdigit():
+#             print("Invalid input. Please enter a valid number.")
+#         else: 
+#             age = int(user_input)
+#             if age < 0:
+#                 print("Invalid age. Age cannot be negative.")
+#             else:
+#                 break
     
-    if age < VOTING_AGE:
-        print("You are not eligible to vote yet.")
-    else:
-        print("You are eligible to vote!")
+#     if age < VOTING_AGE:
+#         print("You are not eligible to vote yet.")
+#     else:
+#         print("You are eligible to vote!")
     
-check_voting_eligibility()
+# check_voting_eligibility()
 
 #---------------------------------------------------------------------------------------------------------
 # Exercise 3: Calculate Dog Years
@@ -87,20 +87,24 @@ check_voting_eligibility()
 # - Convert the string input to an integer using `int()`.
 # - Apply conditional logic to perform the correct age calculation based on the dog's age.
 
-# def calculate_dog_years():
-#     # Your control flow logic goes here
-#     age = int(input("Input a dog age: "))
+def calculate_dog_years():
+    # Your control flow logic goes here
+    while True:
+        age_dog = (input("Input a dog age: "))
+        if not age_dog.isdigit():
+            print("Invalid input. Please enter a valid number.")
+        else:
+            age= int(age_dog)
+            break
 
-#     if age <= 0:
-#         print("Please enter a valid age greater than 0")
-#     elif age <= 2:
-#         dog_years = age * 10
-#         print("The dog age in dog years is", dog_years)
-#     else:
-#         dog_years = 20 + (age - 2) * 7
-#         print("The dog age in dog years is", dog_years)
+    if age <= 2:
+        dog_years = age * 10
+        print("The dog age in dog years is", dog_years)
+    else:
+        dog_years = 20 + (age - 2) * 7
+        print("The dog age in dog years is", dog_years)
 
-# calculate_dog_years()
+calculate_dog_years()
 #--------------------------------------------------------------------------------------------------------
 # Exercise 4: Weather Advice
 #
