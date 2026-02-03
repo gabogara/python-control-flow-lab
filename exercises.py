@@ -87,24 +87,24 @@
 # - Convert the string input to an integer using `int()`.
 # - Apply conditional logic to perform the correct age calculation based on the dog's age.
 
-def calculate_dog_years():
-    # Your control flow logic goes here
-    while True:
-        age_dog = (input("Input a dog age: "))
-        if not age_dog.isdigit():
-            print("Invalid input. Please enter a valid number.")
-        else:
-            age= int(age_dog)
-            break
+# def calculate_dog_years():
+#     # Your control flow logic goes here
+#     while True:
+#         age_dog = (input("Input a dog age: "))
+#         if not age_dog.isdigit():
+#             print("Invalid input. Please enter a valid number.")
+#         else:
+#             age= int(age_dog)
+#             break
 
-    if age <= 2:
-        dog_years = age * 10
-        print("The dog age in dog years is", dog_years)
-    else:
-        dog_years = 20 + (age - 2) * 7
-        print("The dog age in dog years is", dog_years)
+#     if age <= 2:
+#         dog_years = age * 10
+#         print("The dog age in dog years is", dog_years)
+#     else:
+#         dog_years = 20 + (age - 2) * 7
+#         print("The dog age in dog years is", dog_years)
 
-calculate_dog_years()
+# calculate_dog_years()
 #--------------------------------------------------------------------------------------------------------
 # Exercise 4: Weather Advice
 #
@@ -122,26 +122,35 @@ calculate_dog_years()
 # Hints:
 # - Use logical operators (`AND`, `OR`, `NOT`) in your if statements to handle multiple conditions.
 
-# def weather_advice():
-#     # Your control flow logic goes here
-#     cold_input = input("Is it cold? (yes/no): ").strip()
-#     cold = cold_input.lower()
+def weather_advice():
+    # Your control flow logic goes here
+    VALIDATION = ["yes", "no"]
+    while True:
+        cold_input = input("Is it cold? (yes/no): ").strip()
+        cold = cold_input.lower()
+        if cold not in VALIDATION:
+            print("Please answer with yes or no.")
+        else:
+            break
+    
+    while True:
+        raining_input = input("Is it raining? (yes/no): ").strip()
+        raining = raining_input.lower()
+        if raining not in VALIDATION:
+            print("Please answer with yes or no.")
+        else:
+            break
 
-#     raining_input = input("Is it raining? (yes/no): ").strip()
-#     raining = raining_input.lower()
+    if cold == "yes" and raining == "yes":
+        print("Wear a waterproof coat.")
+    elif cold == "yes" and raining == "no":
+        print("Wear a warm coat.")
+    elif cold == "no" and raining == "yes":
+        print("Carry an umbrella.")
+    else:
+        print("Wear light clothing.")
 
-#     if cold == "yes" and raining == "yes":
-#         print("Wear a waterproof coat.")
-#     elif cold == "yes" and raining == "no":
-#         print("Wear a warm coat.")
-#     elif cold == "no" and raining == "yes":
-#         print("Carry an umbrella.")
-#     elif cold == "no" and raining == "no":
-#         print("Wear light clothing.")
-#     else:
-#         print("Please answer with yes or no.")
-
-# weather_advice()
+weather_advice()
 #----------------------------------------------------------------------------------------------------------
 # Exercise 5: What's the Season?
 #
