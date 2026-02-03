@@ -122,35 +122,35 @@
 # Hints:
 # - Use logical operators (`AND`, `OR`, `NOT`) in your if statements to handle multiple conditions.
 
-def weather_advice():
-    # Your control flow logic goes here
-    VALIDATION = ["yes", "no"]
-    while True:
-        cold_input = input("Is it cold? (yes/no): ").strip()
-        cold = cold_input.lower()
-        if cold not in VALIDATION:
-            print("Please answer with yes or no.")
-        else:
-            break
+# def weather_advice():
+#     # Your control flow logic goes here
+#     VALIDATION = ["yes", "no"]
+#     while True:
+#         cold_input = input("Is it cold? (yes/no): ").strip()
+#         cold = cold_input.lower()
+#         if cold not in VALIDATION:
+#             print("Please answer with yes or no.")
+#         else:
+#             break
     
-    while True:
-        raining_input = input("Is it raining? (yes/no): ").strip()
-        raining = raining_input.lower()
-        if raining not in VALIDATION:
-            print("Please answer with yes or no.")
-        else:
-            break
+#     while True:
+#         raining_input = input("Is it raining? (yes/no): ").strip()
+#         raining = raining_input.lower()
+#         if raining not in VALIDATION:
+#             print("Please answer with yes or no.")
+#         else:
+#             break
 
-    if cold == "yes" and raining == "yes":
-        print("Wear a waterproof coat.")
-    elif cold == "yes" and raining == "no":
-        print("Wear a warm coat.")
-    elif cold == "no" and raining == "yes":
-        print("Carry an umbrella.")
-    else:
-        print("Wear light clothing.")
+#     if cold == "yes" and raining == "yes":
+#         print("Wear a waterproof coat.")
+#     elif cold == "yes" and raining == "no":
+#         print("Wear a warm coat.")
+#     elif cold == "no" and raining == "yes":
+#         print("Carry an umbrella.")
+#     else:
+#         print("Wear light clothing.")
 
-weather_advice()
+# weather_advice()
 #----------------------------------------------------------------------------------------------------------
 # Exercise 5: What's the Season?
 #
@@ -171,38 +171,44 @@ weather_advice()
 # - Adjust the season based on the day of the month when needed.
 # - Ensure to validate input formats and handle unexpected inputs gracefully.
 
-# def determine_season():
-#     # Your control flow logic goes here
-#     month = input("Enter the month of the year (Jan - Dec): ").strip()
-#     day_input = input("Enter the day of the month: ").strip()
+def determine_season():
+    # Your control flow logic goes here
+    MONTHS = ["jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"]
+    DAYS_IN_MONTH = {
+        "jan": 31, "feb": 28, "mar": 31, "apr": 30, "may": 31, "jun": 30,
+        "jul": 31, "aug": 31, "sep": 30, "oct": 31, "nov": 30, "dec": 31
+    }
 
-#     if not day_input.isdigit():
-#         print("Invalid day. Please enter a number.")
-#         return
+    while True:
+        month_input = input("Enter month (Jan-Dec): ").strip()
+        month = month_input.lower()
+        if month not in MONTHS:
+            print("Invalid month. Please use format like Jan, Feb, ..., Dec.")
+        else:
+            break
+
+    while True:
+        day_input = input("Enter the day of the month: ").strip()
+        if not day_input.isdigit():
+            print("Invalid day. Please enter a number.")
+            continue
+
+        day = int(day_input)
+        if day < 1 or day > DAYS_IN_MONTH[month]:
+            print(f"Invalid day for {month}. Enter a value from 1 to {DAYS_IN_MONTH[month]}.")
+        else:
+            break
     
-    
-#     day = int(day_input)
+    if (month == "dec" and day>20) or month in ["jan", "feb"] or (month == "mar" and day<20): 
+        season= "Winter"
+    elif (month == "mar" and day>19) or month in ["apr","may"] or (month == "jun" and day<21): 
+        season = "Spring"
+    elif (month == "jun" and day>20) or month in ["jul","aug"] or (month == "sep" and day<22):
+        season = "Summer"
+    else:
+        season = "Fall" 
     
 
-#     months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
+    print(f"{month_input} {day} is in {season}")
 
-#     if not month in months:
-#         print("Invalid month. Please use format like Jan, Feb, ..., Dec.")
-#         return
-#     if day<0 or day>31:
-#         print("Invalid day. Enter a value from 1 to 31.")
-#         return
-    
-#     if (month == "Dec" and day>20) or month in ["Jan", "Feb"] or (month == "Mar" and day<20): 
-#         season= "Winter"
-#     elif (month == "Mar" and day>19) or month in ["Apr","May"] or (month == "Jun" and day<21): 
-#         season = "Spring"
-#     elif (month == "Jun" and day>20) or month in ["Jul","Aug"] or (month == "Sep" and day<22):
-#         season = "Summer"
-#     else:
-#         season = "Fall" 
-    
-
-#     print(f" {month} {day} is in {season}")
-
-# determine_season()
+determine_season()
